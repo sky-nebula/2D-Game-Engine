@@ -1,4 +1,5 @@
 package Engine;
+import Rendering.GamePanel;
 import Rendering.Sprite;
 
 public class Entity extends GameObject {
@@ -7,6 +8,6 @@ public class Entity extends GameObject {
     }
     public void Render(){
         sprite.POS = POS;
-        Game.Sprites.sprites.push(sprite);
+        GamePanel.SpriteLayer.add(sprite);
     }
 }

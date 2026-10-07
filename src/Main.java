@@ -22,8 +22,8 @@ void main() {
             DeltaTime = MaxDeltaTime;
         }
         while(DeltaTime >= TimeBetweenUpdate){
-            //GameObject object = Game.gameObjects.get(0);
-            //object.GetPosition().Add(1,0);
+            GameObject object = Game.gameObjects.get(0);
+            object.GetPosition().Add(1,0);
             game.Update();
             DeltaTime -= TimeBetweenUpdate;
         }
