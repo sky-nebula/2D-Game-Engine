@@ -1,4 +1,4 @@
 public class GlobalGameState{
-    public static Object[] ActiveObjects = new int[10];
+    public static Object[] ActiveObjects = new Object[10];
 
 }

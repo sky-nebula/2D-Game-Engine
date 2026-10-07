@@ -1,5 +1,4 @@
-public class Collider {
-    Vector POS;
+public class Collider extends Object{
     Vector RAD;
     public Collider(int X, int Y, int W, int H){
         POS = new Vector(X, Y);
@@ -8,16 +7,6 @@ public class Collider {
     public Collider(Vector POS, Vector RAD){
         this.POS = POS;
         this.RAD = RAD;
-    }
-    void SetPosition(int X, int Y){
-        POS.X = X;
-        POS.Y = Y;
-    }
-    void SetPosition(Vector POS){
-        this.POS = POS;
-    }
-    Vector GetPosition(){
-        return POS;
     }
     void SetRadius(int W, int H){
         RAD.X = W;
@@ -29,7 +18,6 @@ public class Collider {
     Vector GetRadius(){
         return RAD;
     }
-
     boolean IsColliding(Collider collider){
         return collider.POS.X - collider.RAD.X <  POS.X + RAD.X &&
                 collider.POS.X + collider.RAD.X >  POS.X - RAD.X &&
