@@ -12,12 +12,18 @@ void main() {
     long DeltaTime = 0;
 
     game.Update();
+    Entity entity = new Entity();
+    Sprite sprite = new Sprite("/2D-Game-Engine-Logo.png");
+    entity.sprite = sprite;
+    Game.gameObjects.add(entity);
     boolean run = true;
     while(run){
         if(DeltaTime > MaxDeltaTime){
             DeltaTime = MaxDeltaTime;
         }
         while(DeltaTime >= TimeBetweenUpdate){
+            //GameObject object = Game.gameObjects.get(0);
+            //object.GetPosition().Add(1,0);
             game.Update();
             DeltaTime -= TimeBetweenUpdate;
         }

@@ -1,12 +1,12 @@
 package Engine;
 import Math.*;
 public class Collider extends GameObject {
-    Vector RAD;
+    Vector2D RAD;
     public Collider(int X, int Y, int W, int H){
-        POS = new Vector(X, Y);
-        RAD = new Vector(W, H);
+        POS = new Vector2D(X, Y);
+        RAD = new Vector2D(W, H);
     }
-    public Collider(Vector POS, Vector RAD){
+    public Collider(Vector2D POS, Vector2D RAD){
         this.POS = POS;
         this.RAD = RAD;
     }
@@ -14,10 +14,10 @@ public class Collider extends GameObject {
         RAD.X = W;
         RAD.Y = H;
     }
-    void SetRadius(Vector RAD){
+    void SetRadius(Vector2D RAD){
         this.RAD = RAD;
     }
-    Vector GetRadius(){
+    Vector2D GetRadius(){
         return RAD;
     }
     boolean IsColliding(Collider collider){

@@ -37,7 +37,7 @@ public class Game {
         for(GameObject gameObject : gameObjects)
             gameObject.Update();
         for(GameObject gameObject : gameObjects)
-            gameObject.Render();
+            gameObject.Render();    //Pushes Sprites to the Stack
         //Render
         //TileMap.repaint();
         Sprites.repaint();

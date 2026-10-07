@@ -14,7 +14,7 @@ public class RenderLayer extends JPanel {
         Graphics2D g2 = (Graphics2D) g;        // upgrade to Graphics2D
         while(!sprites.empty()){
             Sprite sprite = sprites.pop();
-            g2.drawImage(sprite.sprite, sprite.POS.X*Game.ScreenScale,
+            g2.drawImage(sprite.SPRITE, sprite.POS.X*Game.ScreenScale,
                     sprite.POS.Y*Game.ScreenScale,
                     sprite.SIZE.X*Game.ScreenScale,
                     sprite.SIZE.Y*Game.ScreenScale,

@@ -1,24 +1,24 @@
 package Engine;
-import Math.Vector;
+import Math.Vector2D;
 public class GameObject {
-    Vector POS;
+    Vector2D POS;
     public GameObject(){
-        POS = new Vector();
+        POS = new Vector2D();
     }
-    public GameObject(Vector POS){
+    public GameObject(Vector2D POS){
         this.POS = POS;
     }
     public GameObject(int X, int Y){
-        POS = new Vector(X, Y);
+        POS = new Vector2D(X, Y);
     }
     public void SetPosition(int X, int Y){
         POS.X = X;
         POS.Y = Y;
     }
-    public void SetPosition(Vector POS){
+    public void SetPosition(Vector2D POS){
         this.POS = POS;
     }
-    public Vector GetPosition(){
+    public Vector2D GetPosition(){
         return POS;
     }
     public void Render(){}
