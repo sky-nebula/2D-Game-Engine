@@ -1,10 +1,12 @@
+package Math;
+
 public class Vector {
     public int X, Y;
-    Vector(){
+    public Vector(){
         X = 0;
         Y = 0;
     }
-    Vector(int X, int Y){
+    public Vector(int X, int Y){
         this.X = X;
         this.Y = Y;
     }

@@ -1,17 +1,18 @@
 import javax.swing.*;
+import java.awt.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import Rendering.*;
+import Engine.*;
+import Math.*;
+
 void main() {
+    Game game = new Game();
 
-    JFrame frame = new JFrame("2D-Game-Engine");
-    JLabel label = new JLabel("");
-    frame.add(label);
-    frame.setSize(300, 200);
+    Sprite sprite = new Sprite("/2D-Game-Engine-Logo.png", new Vector(16, 16));
+    Entity object = new Entity();
+    object.sprite = sprite;
+    Game.Objects.add(object);
 
+    game.Update();
 
-    frame.setDefaultCloseOperation(
-            JFrame.EXIT_ON_CLOSE);
-
-    frame.setVisible(true);
 }

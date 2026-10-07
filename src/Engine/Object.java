@@ -1,3 +1,5 @@
+package Engine;
+import Math.Vector;
 public class Object{
     Vector POS;
     public Object(){
@@ -19,6 +21,7 @@ public class Object{
     public Vector GetPosition(){
         return POS;
     }
+    public void Render(){}
     public void OnCreate(){}
     public void Update(){}
     public void OnDelete(){}

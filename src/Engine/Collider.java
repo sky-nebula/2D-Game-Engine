@@ -1,4 +1,6 @@
-public class Collider extends Object{
+package Engine;
+import Math.*;
+public class Collider extends Object {
     Vector RAD;
     public Collider(int X, int Y, int W, int H){
         POS = new Vector(X, Y);
@@ -13,7 +15,7 @@ public class Collider extends Object{
         RAD.Y = H;
     }
     void SetRadius(Vector RAD){
-        this.RAD =RAD;
+        this.RAD = RAD;
     }
     Vector GetRadius(){
         return RAD;
