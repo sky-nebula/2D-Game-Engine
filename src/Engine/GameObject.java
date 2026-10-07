@@ -1,14 +1,14 @@
 package Engine;
 import Math.Vector;
-public class Object{
+public class GameObject {
     Vector POS;
-    public Object(){
+    public GameObject(){
         POS = new Vector();
     }
-    public Object(Vector POS){
+    public GameObject(Vector POS){
         this.POS = POS;
     }
-    public Object(int X, int Y){
+    public GameObject(int X, int Y){
         POS = new Vector(X, Y);
     }
     public void SetPosition(int X, int Y){
@@ -22,7 +22,7 @@ public class Object{
         return POS;
     }
     public void Render(){}
-    public void OnCreate(){}
+    public void OnCreate(){Game.gameObjects.add(this);}
     public void Update(){}
-    public void OnDelete(){}
+    public void OnDelete(){Game.gameObjects.remove(this);}
 }

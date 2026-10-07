@@ -1,6 +1,6 @@
 package Engine;
 import Math.*;
-public class Collider extends Object {
+public class Collider extends GameObject {
     Vector RAD;
     public Collider(int X, int Y, int W, int H){
         POS = new Vector(X, Y);

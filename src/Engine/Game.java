@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.util.Vector;
 
 public class Game {
-    public static Vector<Object> Objects;
+    public static Vector<GameObject> gameObjects;
     public static RenderLayer TileMap;
     public static RenderLayer Sprites;
     public static RenderLayer UI;
@@ -15,6 +15,8 @@ public class Game {
     public static int ScreenWidth = 353;
     public static int ScreenHeight = 198;
     public static int ScreenScale = 2;
+    public static int TargetFPS = 60;
+    public static int TargetUPS = 60;
     public Game(){
         GameScreen = new JFrame(title);
         GameScreen.setSize(ScreenWidth*ScreenScale, ScreenHeight*ScreenScale);
@@ -26,16 +28,16 @@ public class Game {
         //GameScreen.add(TileMap);
         GameScreen.add(Sprites);
         //GameScreen.add(UI);
-        Objects = new Vector<>();
+        gameObjects = new Vector<>();
     }
     public void Update(){
         //Process Input
 
         //Objects Update
-        for(Object object: Objects)
-            object.Update();
-        for(Object object: Objects)
-            object.Render();
+        for(GameObject gameObject : gameObjects)
+            gameObject.Update();
+        for(GameObject gameObject : gameObjects)
+            gameObject.Render();
         //Render
         //TileMap.repaint();
         Sprites.repaint();
