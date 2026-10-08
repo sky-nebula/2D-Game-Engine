@@ -16,8 +16,10 @@ void main() {
     game.Update();
     Entity entity = new Entity();
     Sprite sprite = new Sprite("/2D-Game-Engine-Logo.png");
+    TileMap map = new TileMap("/Stone Tileset.png", new Vector2D(16,16), new int[][]{{0,2,1},{9,2,10}});
     entity.sprite = sprite;
     Game.gameObjects.add(entity);
+    Game.gameObjects.add(map);
     boolean run = true;
     while(run){
         if(DeltaTime > MaxDeltaTime){

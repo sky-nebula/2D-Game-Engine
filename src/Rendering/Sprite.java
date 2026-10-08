@@ -9,25 +9,43 @@ import Math.*;
 public class Sprite {
     BufferedImage SPRITE;
     public Vector2D POS;
-    Vector2D INDEX;
-    Vector2D SIZE;
-    public Sprite(String PATH, int SIZE, Vector2D INDEX) {
+    public Vector2D SIZE;
+    public Sprite(String PATH){
         POS = new Vector2D();
-        this.SIZE = Vector2D.Scale(Vector2D.ONE(), SIZE);
-        this.INDEX = Vector2D.Scale(INDEX, SIZE);
+        SIZE = new Vector2D();
+        SPRITE = LoadSprite(PATH);
+        if(SPRITE==null) return;
+        SIZE.X = SPRITE.getWidth();
+        SIZE.Y = SPRITE.getHeight();
+    }
+    public Sprite(String PATH, Vector2D SIZE, Vector2D OFFSET) {
+        this(PATH);
+        SPRITE = SPRITE.getSubimage(OFFSET.X, OFFSET.Y, SIZE.X, SIZE.Y);
+    }
+    public Sprite(BufferedImage SPRITE){
+        POS = new Vector2D();
+        this.SPRITE = SPRITE;
+        SIZE = new Vector2D();
+        SIZE.X = SPRITE.getWidth();
+        SIZE.Y = SPRITE.getHeight();
+    }
 
+    public BufferedImage GetSprite(){
+        return SPRITE;
+    }
+    public BufferedImage GetSubSprite(Vector2D SIZE, Vector2D OFFSET){
+        return SPRITE.getSubimage(OFFSET.X, OFFSET.Y, SIZE.X, SIZE.Y);
+    }
+    public void SetSprite(BufferedImage SPRITE){
+        this.SPRITE = SPRITE;
+    }
+    public static BufferedImage LoadSprite(String PATH){
         try {
-            SPRITE = ImageIO.read(getClass().getResourceAsStream(PATH));
+             return ImageIO.read(Sprite.class.getResourceAsStream(PATH));
         }
         catch (IOException e){
             System.out.println("Sprite not found at: " + PATH);
         }
-        SPRITE = SPRITE.getSubimage(this.INDEX.X, this.INDEX.Y, this.SIZE.X, this.SIZE.Y);
-    }
-    public Sprite(String PATH){
-        this(PATH, 16, Vector2D.ZERO());
-    }
-    public BufferedImage GetSprite(){
-        return SPRITE;
+        return null;
     }
 }
