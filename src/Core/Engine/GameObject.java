@@ -1,7 +1,7 @@
-package Engine;
-import Math.Vector2D;
+package Core.Engine;
+import Core.Math.Vector2D;
 public class GameObject {
-    Vector2D POS;
+    public Vector2D POS;
     public GameObject(){
         POS = new Vector2D();
     }

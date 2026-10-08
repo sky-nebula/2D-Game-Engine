@@ -1,4 +1,4 @@
-package Rendering;
+package Core.Rendering;
 
 import javax.swing.*;
 import java.awt.*;

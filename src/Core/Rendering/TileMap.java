@@ -1,6 +1,6 @@
-package Rendering;
-import Engine.GameObject;
-import Math.*;
+package Core.Rendering;
+import Core.Engine.GameObject;
+import Core.Math.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

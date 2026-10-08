@@ -1,10 +1,9 @@
-package Rendering;
+package Core.Rendering;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import Math.*;
+import Core.Math.*;
 
 public class Sprite {
     BufferedImage SPRITE;

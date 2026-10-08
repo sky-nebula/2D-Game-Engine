@@ -1,6 +1,7 @@
-package Engine;
-import Rendering.GamePanel;
-import Rendering.Sprite;
+package Plugins;
+import Core.Engine.GameObject;
+import Core.Rendering.GamePanel;
+import Core.Rendering.Sprite;
 
 public class Entity extends GameObject {
     public Sprite sprite;

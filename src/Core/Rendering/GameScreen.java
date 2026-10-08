@@ -1,6 +1,6 @@
-package Rendering;
+package Core.Rendering;
 
-import Engine.Input;
+import Core.Engine.Input;
 
 import javax.swing.*;
 

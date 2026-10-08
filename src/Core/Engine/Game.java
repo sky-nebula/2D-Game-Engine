@@ -1,8 +1,7 @@
-package Engine;
+package Core.Engine;
 
-import Rendering.GameScreen;
+import Core.Rendering.GameScreen;
 
-import java.awt.event.KeyEvent;
 import java.util.Vector;
 
 public class Game {

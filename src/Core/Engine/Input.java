@@ -1,8 +1,7 @@
-package Engine;
+package Core.Engine;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Input extends KeyAdapter {

@@ -1,6 +1,7 @@
-import Rendering.*;
-import Engine.*;
-import Math.*;
+import Plugins.Entity;
+import Core.Rendering.*;
+import Core.Engine.*;
+import Core.Math.*;
 
 import java.awt.event.KeyEvent;
 

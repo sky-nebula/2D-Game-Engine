@@ -1,4 +1,4 @@
-package Math;
+package Core.Math;
 
 public class Vector2D {
     public int X, Y;

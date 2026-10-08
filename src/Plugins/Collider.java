@@ -1,5 +1,6 @@
-package Engine;
-import Math.*;
+package Plugins;
+import Core.Engine.*;
+import Core.Math.*;
 public class Collider extends GameObject {
     Vector2D RAD;
     public Collider(int X, int Y, int W, int H){
