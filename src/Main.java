@@ -2,6 +2,8 @@ import Rendering.*;
 import Engine.*;
 import Math.*;
 
+import java.awt.event.KeyEvent;
+
 void main() {
     Game game = new Game();
 
@@ -23,7 +25,14 @@ void main() {
         }
         while(DeltaTime >= TimeBetweenUpdate){
             GameObject object = Game.gameObjects.get(0);
-            object.GetPosition().Add(1,0);
+            if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_D))
+            object.GetPosition().X++;
+            if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_A))
+                object.GetPosition().X--;
+            if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_W))
+                object.GetPosition().Y++;
+            if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_S))
+                object.GetPosition().Y--;
             game.Update();
             DeltaTime -= TimeBetweenUpdate;
         }
