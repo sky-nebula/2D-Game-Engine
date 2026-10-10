@@ -11,7 +11,9 @@ public class TileMap extends GameObject {
     Vector2D MAPSIZE;
     Vector2D TILESIZE;
     int[][] MAP;
+    public TileMap(){}
     public TileMap(String path, Vector2D TILESIZE, int[][]MAP){
+
         TILESHEET = new Sprite(path);
         this.TILESIZE = TILESIZE;
         this.MAP = MAP;

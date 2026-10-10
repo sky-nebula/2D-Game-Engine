@@ -24,7 +24,7 @@ public class GamePanel extends JPanel {
     public void Clear(){
         TileMapLayer.clear();
         SpriteLayer.clear();
-        //UILayer.clear();
+        UILayer.clear();
     }
     void paintLayer(Graphics2D g2, ArrayList<Sprite> layer){
         for(Sprite sprite : layer){
