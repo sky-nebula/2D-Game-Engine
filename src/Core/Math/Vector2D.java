@@ -3,6 +3,7 @@ package Core.Math;
 public class Vector2D {
     public int X, Y;
     public static Vector2D ONE() {return new Vector2D(1, 1);}
+    public static Vector2D X16() {return new Vector2D(16,16);}
     public static Vector2D ZERO() {return new Vector2D();}
     public Vector2D(){
         X = 0;

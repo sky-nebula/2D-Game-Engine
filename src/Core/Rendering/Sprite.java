@@ -6,44 +6,74 @@ import java.io.IOException;
 import Core.Math.*;
 
 public class Sprite {
-    BufferedImage SPRITE;
-    public Vector2D POS;
-    public Vector2D SIZE;
-    public Sprite(String PATH){
-        POS = new Vector2D();
-        SIZE = new Vector2D();
-        SPRITE = LoadSprite(PATH);
-        if(SPRITE==null) return;
-        SIZE.X = SPRITE.getWidth();
-        SIZE.Y = SPRITE.getHeight();
-    }
-    public Sprite(String PATH, Vector2D SIZE, Vector2D OFFSET) {
-        this(PATH);
-        SPRITE = SPRITE.getSubimage(OFFSET.X, OFFSET.Y, SIZE.X, SIZE.Y);
-    }
-    public Sprite(BufferedImage SPRITE){
-        POS = new Vector2D();
-        this.SPRITE = SPRITE;
-        SIZE = new Vector2D();
-        SIZE.X = SPRITE.getWidth();
-        SIZE.Y = SPRITE.getHeight();
-    }
 
-    public BufferedImage GetSprite(){
-        return SPRITE;
+    BufferedImage IMAGE;
+    public Vector2D POS;
+    Vector2D SIZE;
+    Vector2D OFFSET;
+    String PATH;
+
+    //Setters
+    public void SetIMAGE(BufferedImage image){
+        IMAGE = image;
     }
-    public BufferedImage GetSubSprite(Vector2D SIZE, Vector2D OFFSET){
-        return SPRITE.getSubimage(OFFSET.X, OFFSET.Y, SIZE.X, SIZE.Y);
+    public void SetSIZE(Vector2D size){
+        SIZE = size;
     }
-    public void SetSprite(BufferedImage SPRITE){
-        this.SPRITE = SPRITE;
+    public void SetOFFSET(Vector2D offset){
+        OFFSET = offset;
     }
-    public static BufferedImage LoadSprite(String PATH){
+    public void SetPATH(String path){
+        PATH = path;
+    }
+    //Mutator
+    public void RefreshRaw(){
+        IMAGE = LoadFromPath(PATH);
+        if(IMAGE == null)
+            IMAGE = LoadFromPath("/Default.png");
+        else
+            SIZE = new Vector2D(IMAGE.getWidth(), IMAGE.getHeight());
+    }
+    public void Refresh(){
+        IMAGE = LoadFromPath(PATH);
+        if(IMAGE==null)
+            IMAGE = LoadFromPath("/Default.png");
+        else
+            IMAGE = GetSubIMAGE(SIZE, OFFSET);
+    }
+    //Constructors
+    public Sprite(){
+        POS = new Vector2D();
+        OFFSET = new Vector2D();
+        PATH = "/Default.png";
+        RefreshRaw();
+    }
+    public Sprite(String path){
+        POS = new Vector2D();
+        OFFSET = new Vector2D();
+        PATH = path;
+        RefreshRaw();
+    }
+    public Sprite(String path, Vector2D size, Vector2D offset) {
+        POS = new Vector2D();
+        SIZE = size;
+        OFFSET = offset;
+        PATH = path;
+        Refresh();
+    }
+    //Getters
+    public BufferedImage GetIMAGE(){
+        return IMAGE;
+    }
+    public BufferedImage GetSubIMAGE(Vector2D size, Vector2D offset){
+        return IMAGE.getSubimage(offset.X, offset.Y, size.X, size.Y);
+    }
+    public static BufferedImage LoadFromPath(String path){
         try {
-             return ImageIO.read(Sprite.class.getResourceAsStream(PATH));
+             return ImageIO.read(Sprite.class.getResourceAsStream(path));
         }
         catch (IOException e){
-            System.out.println("Sprite not found at: " + PATH);
+            System.out.println("Sprite not found at: " + path);
         }
         return null;
     }
