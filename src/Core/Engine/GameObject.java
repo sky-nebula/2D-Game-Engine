@@ -1,6 +1,6 @@
 package Core.Engine;
 import Core.Math.Vector2D;
-public class GameObject {
+public class GameObject implements Updateable, Renderable{
     public Vector2D POS;
     public GameObject(){
         POS = new Vector2D();

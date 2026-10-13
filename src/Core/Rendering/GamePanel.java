@@ -28,7 +28,7 @@ public class GamePanel extends JPanel {
     }
     void paintLayer(Graphics2D g2, ArrayList<Sprite> layer){
         for(Sprite sprite : layer){
-            g2.drawImage(sprite.SPRITE, sprite.POS.X*GameScreen.ScreenScale,
+            g2.drawImage(sprite.IMAGE, sprite.POS.X*GameScreen.ScreenScale,
                     -sprite.POS.Y*GameScreen.ScreenScale,
                     sprite.SIZE.X*GameScreen.ScreenScale,
                     sprite.SIZE.Y*GameScreen.ScreenScale,

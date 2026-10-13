@@ -1,32 +1,65 @@
 package Core.Engine;
 
+import Core.Rendering.GamePanel;
 import Core.Rendering.GameScreen;
+import Core.Rendering.Sprite;
+import Core.Rendering.UIPanel;
 
-import java.util.Vector;
+import java.util.ArrayList;
+
 
 public class Game {
-    public static Vector<GameObject> gameObjects;
-    public static GameScreen Screen;
-    public static int TargetFPS = 60;
+    public ArrayList<GameObject> gameObjects;
+    public ArrayList<UIPanel> uiPanels;
+    public GameScreen Screen;
     public static int TargetUPS = 60;
     public Game(){
         Screen = new GameScreen();
-        gameObjects = new Vector<>();
+        gameObjects = new ArrayList<>();
+        uiPanels = new ArrayList<>();
     }
     public void Update(){
+        //Clear Screen Buffer
         Screen.Clear();
-        //Process Input
-
         //Objects Update
-        for(GameObject gameObject : gameObjects)
-            gameObject.Update();
-        for(GameObject gameObject : gameObjects)
-            gameObject.Render();    //Pushes Sprites to the Stack
-        //Render
-        //TileMap.repaint();
+        for(GameObject gameObject : gameObjects){
+            if(gameObject instanceof Updateable updateable){
+                updateable.Update();
+            }
+        }
+        for(GameObject gameObject : gameObjects){
+            if(gameObject instanceof Renderable renderable){
+                renderable.Render();
+            }
+        }
+        //UI Update
+        for(UIPanel uiPanel : uiPanels){
+            if(uiPanel instanceof Updateable updateable){
+                updateable.Update();
+            }
+        }
+        for(UIPanel uiPanel : uiPanels){
+            if(uiPanel instanceof Renderable renderable){
+                renderable.Render();
+            }
+        }
+        //Render Screen
         Screen.DrawScreen();
-        //UI.repaint();
-        Screen.INPUT.Clear();
-
+        //Clear Input OnPress/OnRelease
+        INPUT.Clear();
+    }
+    public void AddToScene(GameObject gameObject){
+        gameObjects.add(gameObject);
+        gameObject.OnCreate();
+    }
+    public void RemoveFromScene(GameObject gameObject){
+        gameObject.OnDelete();
+        gameObjects.remove(gameObject);
+    }
+    public void AddToUI(UIPanel uiPanel){
+        uiPanels.add(uiPanel);
+    }
+    public void RemoveFromUI(UIPanel uiPanel){
+        uiPanels.remove(uiPanel);
     }
 }

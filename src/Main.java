@@ -17,14 +17,14 @@ void main() {
     game.Update();
     Entity entity = new Entity();
     Sprite sprite = new Sprite("/2D-Game-Engine-Logo.png");
-    UIPanel panel = new UIPanel("/UIPanel.png", new Vector2D(3,3), new Vector2D(100,100));
-    UIPanel upanel = new UIPanel("/UIPanel.png", new Vector2D(3,3), new Vector2D(100,33));
+    //UIPanel panel = new UIPanel("/UIPanel.png", new Vector2D(3,3), new Vector2D(100,100));
+    //UIPanel upanel = new UIPanel("/UIPanel.png", new Vector2D(3,3), new Vector2D(100,33));
     TileMap map = new TileMap("/Stone Tileset.png", new Vector2D(16,16), new int[][]{{0,2,1},{9,2,10}});
     entity.sprite = sprite;
-    Game.gameObjects.add(entity);
-    Game.gameObjects.add(map);
-    panel.AddSubPanel(upanel);
-    Game.gameObjects.add(panel);
+    game.AddToScene(entity);
+    //Game.gameObjects.add(map);
+    //panel.AddSubPanel(upanel);
+    //Game.gameObjects.add(panel);
 
     boolean run = true;
     while(run){
@@ -32,15 +32,14 @@ void main() {
             DeltaTime = MaxDeltaTime;
         }
         while(DeltaTime >= TimeBetweenUpdate){
-            GameObject object = Game.gameObjects.get(0);
-            if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_D))
+            /*if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_D))
             object.GetPosition().X++;
             if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_A))
                 object.GetPosition().X--;
             if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_W))
                 object.GetPosition().Y++;
             if(GameScreen.INPUT.IsKeyDown(KeyEvent.VK_S))
-                object.GetPosition().Y--;
+                object.GetPosition().Y--;*/
             game.Update();
             DeltaTime -= TimeBetweenUpdate;
         }
