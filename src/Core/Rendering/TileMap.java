@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class TileMap {
-    BufferedImage IMAGE;
+    Sprite SPRITE;
     Sprite TILESHEET;
     Vector2D TILESIZE;
     int[][] MAP;
@@ -16,7 +16,14 @@ public class TileMap {
         TILESIZE = Vector2D.X16();
         MAP = new int[1][1];
         MAPSIZE = Vector2D.ONE();
-        IMAGE = GenerateMap();
+        SPRITE = new Sprite();
+    }
+    public TileMap(Sprite tilesheet, Vector2D tilesize,int[][] map){
+        TILESHEET =  tilesheet;
+        TILESIZE = tilesize;
+        MAP = map;
+        MAPSIZE = new Vector2D(MAP[0].length, MAP.length);
+        SPRITE = new Sprite(GenerateMap());
     }
     public TileMap(String path, Vector2D tilesize){
         TILESHEET = new Sprite(path);
@@ -27,7 +34,7 @@ public class TileMap {
         TILESIZE = tilesize;
         MAP = map;
         MAPSIZE = new Vector2D(MAP[0].length, MAP.length);
-        IMAGE = GenerateMap();
+        SPRITE = new Sprite(GenerateMap());
     }
     //Setters
     public void SetTILESHEET(Sprite tilesheet){
@@ -44,8 +51,8 @@ public class TileMap {
     public Vector2D GetTILESIZE(){
         return TILESIZE;
     }
-    public BufferedImage GetIMAGE(){
-        return IMAGE;
+    public Sprite GetSPRITE(){
+        return SPRITE;
     }
     BufferedImage GetTile(int Index){
         Vector2D OFFSET = new Vector2D(
