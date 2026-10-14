@@ -22,7 +22,11 @@ public class GameObject implements Updateable, Renderable{
         return POS;
     }
     public void Render(){}
-    public void OnCreate(){Game.gameObjects.add(this);}
+    public void OnCreate(){
+        //Game.gameObjects.add(this);
+    }
     public void Update(){}
-    public void OnDelete(){Game.gameObjects.remove(this);}
+    public void OnDelete(){
+        //Game.gameObjects.remove(this);
+    }
 }

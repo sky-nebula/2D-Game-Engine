@@ -46,7 +46,7 @@ public class Game {
         //Render Screen
         Screen.DrawScreen();
         //Clear Input OnPress/OnRelease
-        INPUT.Clear();
+        GameScreen.INPUT.Clear();
     }
     public void AddToScene(GameObject gameObject){
         gameObjects.add(gameObject);

@@ -12,16 +12,21 @@ public class UIPanel implements Renderable {
     TileMap BACKGROUND;
     UIPanel PARENT;
     ArrayList<UIPanel> SUBPANELS;
-    boolean VISIBLE;
+    boolean VISIBLE = true;
 
     public UIPanel() {
         SUBPANELS = new ArrayList<>();
         POS = new Vector2D();
         SIZE = new Vector2D();
     }
-    public UIPanel(String path, Vector2D size) {
+    public UIPanel(Vector2D pos){
         SUBPANELS = new ArrayList<>();
-        POS = new Vector2D();
+        POS = pos;
+        SIZE = new Vector2D();
+    }
+    public UIPanel(String path, Vector2D size, Vector2D pos) {
+        SUBPANELS = new ArrayList<>();
+        POS = pos;
         SIZE = size;
         Sprite sprite = new Sprite(path);
         Vector2D tilesize = new Vector2D(sprite.SIZE.X/3, sprite.SIZE.Y/3);
@@ -31,10 +36,20 @@ public class UIPanel implements Renderable {
     @Override
     public void Render(){
         if(!VISIBLE) return;
-        if(BACKGROUND != null)
+        if(BACKGROUND != null){
+            BACKGROUND.SPRITE.POS = GetGlobalPosition();
             GamePanel.UILayer.add(BACKGROUND.GetSPRITE());
+        }
         for(UIPanel panel : SUBPANELS)
             panel.Render();
     }
-
+    public Vector2D GetGlobalPosition(){
+        if(PARENT == null)
+            return POS;
+        return Vector2D.Add(POS, PARENT.GetGlobalPosition());
+    }
+    public void AddSubPanel(UIPanel subpanel){
+        SUBPANELS.add(subpanel);
+        subpanel.PARENT = this;
+    }
 }

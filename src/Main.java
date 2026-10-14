@@ -17,7 +17,10 @@ void main() {
     game.Update();
     Entity entity = new Entity();
     Sprite sprite = new Sprite("/2D-Game-Engine-Logo.png");
-    //UIPanel panel = new UIPanel("/UIPanel.png", new Vector2D(3,3), new Vector2D(100,100));
+    UIPanel parent = new UIPanel(new Vector2D(25, -25));
+    UIPanel child = new UIPanel("/UIPanel.png", new Vector2D(200,100), new Vector2D(0,-50));
+    parent.AddSubPanel(child);
+    game.AddToUI(parent);
     //UIPanel upanel = new UIPanel("/UIPanel.png", new Vector2D(3,3), new Vector2D(100,33));
     TileMap map = new TileMap("/Stone Tileset.png", new Vector2D(16,16), new int[][]{{0,2,1},{9,2,10}});
     entity.sprite = sprite;
