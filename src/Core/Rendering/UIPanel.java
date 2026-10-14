@@ -10,6 +10,7 @@ public class UIPanel implements Renderable {
     Vector2D POS;
     Vector2D SIZE;
     TileMap BACKGROUND;
+
     UIPanel PARENT;
     ArrayList<UIPanel> SUBPANELS;
     boolean VISIBLE = true;
