@@ -7,7 +7,7 @@ import Core.Math.Vector2D;
 import java.util.ArrayList;
 
 public class UIPanel implements Renderable {
-    Vector2D POS;
+    public Vector2D POS;
     Vector2D SIZE;
     TileMap BACKGROUND;
 

@@ -52,6 +52,7 @@ public class UIButton extends UIPanel implements Updateable {
             DARKEN = false;
             BRIGHTEN = false;
         }
+        System.out.println("Active Triggered: " + ACTIVE);
     }
 
     @Override
